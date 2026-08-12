@@ -4,10 +4,7 @@ import { ShoppingBag } from "lucide-react";
 import { useCart } from "@/lib/cartContext";
 
 const links = [
-  { href: "#gallery", label: "菓子" },
-  { href: "#drinks", label: "飲物" },
-  { href: "#about", label: "店について" },
-  { href: "#visit", label: "店舗" },
+  { href: "#menu", label: "メニュー" },
 ];
 
 export default function Navbar() {

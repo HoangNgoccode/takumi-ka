@@ -15,7 +15,7 @@ export default function Footer() {
             </div>
             <p className="mt-5 max-w-sm text-[hsl(var(--parchment))]/70 leading-[1.8] text-sm">
               職人の手と珈琲の温度。<br />
-              京都の路地で、一九八三年から。
+              沖縄の海風と、一九八三年から。
             </p>
           </div>
 
@@ -32,7 +32,7 @@ export default function Footer() {
           <div className="md:col-span-4">
             <p className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--sand))] mb-5">つながる</p>
             <p className="text-sm text-[hsl(var(--parchment))]/70 leading-[1.7]">
-              京都市左京区 哲学の道 三番地
+              沖縄県那覇市 国際通り 三番地
             </p>
             <a
               href="https://instagram.com"
