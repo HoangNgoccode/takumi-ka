@@ -4,89 +4,157 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-    --font-heading: ui-sans-serif, system-ui, sans-serif;
-    --font-body: ui-sans-serif, system-ui, sans-serif;
-    --font-display: ui-sans-serif, system-ui, sans-serif;
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 40 36% 96%;
+    --foreground: 24 9% 16%;
+    --card: 40 36% 97%;
+    --card-foreground: 24 9% 16%;
+    --popover: 40 30% 98%;
+    --popover-foreground: 24 9% 16%;
+    --primary: 24 9% 16%;
+    --primary-foreground: 40 36% 96%;
+    --secondary: 30 32% 77%;
+    --secondary-foreground: 24 9% 16%;
+    --muted: 30 24% 90%;
+    --muted-foreground: 24 8% 40%;
+    --accent: 26 40% 39%;
+    --accent-foreground: 40 36% 96%;
+    --destructive: 0 62% 38%;
+    --destructive-foreground: 40 36% 96%;
+    --border: 30 22% 84%;
+    --input: 30 22% 84%;
+    --ring: 26 40% 39%;
+    --chart-1: 26 40% 39%;
+    --chart-2: 30 32% 77%;
+    --chart-3: 24 9% 26%;
+    --chart-4: 80 25% 45%;
+    --chart-5: 40 60% 55%;
+    --radius: 0.25rem;
+    --font-heading: "Shippori Mincho", ui-serif, serif;
+    --font-body: "Instrument Sans", "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Shippori Mincho", ui-serif, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+    --wood: 26 40% 39%;
+    --sand: 30 32% 77%;
+    --parchment: 40 36% 96%;
+    --espresso: 24 18% 14%;
   }
 
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 24 14% 11%;
+    --foreground: 40 30% 92%;
+    --card: 24 12% 13%;
+    --card-foreground: 40 30% 92%;
+    --popover: 24 14% 12%;
+    --popover-foreground: 40 30% 92%;
+    --primary: 40 36% 96%;
+    --primary-foreground: 24 9% 16%;
+    --secondary: 24 10% 22%;
+    --secondary-foreground: 40 30% 92%;
+    --muted: 24 10% 20%;
+    --muted-foreground: 40 14% 65%;
+    --accent: 26 40% 49%;
+    --accent-foreground: 40 36% 96%;
+    --border: 24 10% 22%;
+    --input: 24 10% 22%;
+    --ring: 26 40% 49%;
   }
 }
-
-
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: hsl(var(--wood));
+    color: hsl(var(--parchment));
+  }
+}
+
+@layer components {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .vertical-jp {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: var(--font-heading);
+  }
+
+  /* Koushi lattice background */
+  .koushi-bg {
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent calc(100% / 16 - 1px),
+      hsl(var(--border) / 0.35) calc(100% / 16 - 1px),
+      hsl(var(--border) / 0.35) calc(100% / 16)
+    );
+  }
+
+  .wood-grain {
+    background-image:
+      radial-gradient(ellipse at 30% 20%, hsl(var(--sand) / 0.5) 0%, transparent 60%),
+      repeating-linear-gradient(
+        88deg,
+        hsl(var(--parchment)) 0px,
+        hsl(var(--parchment)) 2px,
+        hsl(30 28% 93%) 2px,
+        hsl(30 28% 93%) 7px
+      );
+  }
+
+  .hairline {
+    border-color: hsl(var(--wood) / 0.25);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-slow-rise {
+    animation: slow-rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes slow-rise {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-tea-pour {
+    animation: tea-pour 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes tea-pour {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
   }
 }
