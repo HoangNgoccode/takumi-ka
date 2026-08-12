@@ -1,18 +1,12 @@
 import React from "react";
 import Hero from "@/components/Hero";
-import PastryGallery from "@/components/PastryGallery";
-import BeverageMenu from "@/components/BeverageMenu";
-import AboutSection from "@/components/AboutSection";
-import VisitSection from "@/components/VisitSection";
+import OrderMenu from "@/components/OrderMenu";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <PastryGallery />
-      <BeverageMenu />
-      <AboutSection />
-      <VisitSection />
+      <OrderMenu />
     </>
   );
 }
