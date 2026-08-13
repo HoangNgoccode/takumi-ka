@@ -75,6 +75,9 @@ export default function OrderMenu() {
                 return (
                   <li key={d.id}>
                     <button onClick={() => setOpenDrink(open ? null : d.id)} className="w-full flex items-center gap-4 py-5 text-left focus-visible:outline-none" aria-expanded={open}>
+                      <span className="relative w-16 h-16 md:w-20 md:h-20 shrink-0 overflow-hidden rounded-sm bg-[hsl(var(--sand))]/30">
+                        <Image src={d.image} alt={d.nameJp} fittingType="fill" className="w-full h-full" />
+                      </span>
                       <span className="font-mono text-xs text-muted-foreground tabular-nums w-8">{String(i + 1).padStart(2, "0")}</span>
                       <span className="flex-1 flex items-baseline gap-3 flex-wrap"><span className="font-heading text-lg md:text-xl">{d.nameJp}</span><span className="text-sm italic text-muted-foreground">{d.nameEn}</span></span>
                       <span className="font-heading text-base tabular-nums">{yen(d.price)}</span>

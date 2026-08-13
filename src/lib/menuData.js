@@ -10,7 +10,7 @@ export const pastries = [
     desc: "マスカルポーネとエスプレッソの重なり。ココアの粉雪。",
     batch: "本日 14:00",
     accent: "espresso",
-    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/e6dd2daae_generated_d4435437.png",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/4eb1321ca_generated_image.png",
   },
   {
     id: "croissant",
@@ -20,7 +20,7 @@ export const pastries = [
     desc: "層の果てまで折り重ねた、北海道発酵バターの香り。",
     batch: "本日 11:00",
     accent: "gold",
-    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/4434f53aa_generated_7fd5de47.png",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/39f23d7d0_generated_image.png",
   },
   {
     id: "cheesecake",
@@ -30,7 +30,7 @@ export const pastries = [
     desc: "しっとり、ふわり。焼き込みの時間がつくる濃厚な口溶け。",
     batch: "本日 15:30",
     accent: "cream",
-    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/6cd979e95_generated_9337bd8f.png",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/8c47cc6f2_generated_image.png",
   },
   {
     id: "millefeuille",
@@ -40,7 +40,7 @@ export const pastries = [
     desc: "三枚の薄い生地と二層のクリーム。崩れるほどに美しい。",
     batch: "本日 13:00",
     accent: "vanilla",
-    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/3575629be_generated_52a9eac0.png",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/9b5268b88_generated_image.png",
   },
 ];
 
@@ -52,6 +52,7 @@ export const drinks = [
     price: 480,
     profile: { sweetness: 1, acidity: 4, body: 3 },
     note: "深煎りの輪郭を、お湯でくっきりと。",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/6aec94237_generated_image.png",
   },
   {
     id: "cafelatte",
@@ -60,6 +61,7 @@ export const drinks = [
     price: 540,
     profile: { sweetness: 2, acidity: 2, body: 4 },
     note: "白磁に浮かぶ、木漏れ日のような模様。",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/ac2ca2f56_generated_image.png",
   },
   {
     id: "matchalatte",
@@ -68,6 +70,7 @@ export const drinks = [
     price: 620,
     profile: { sweetness: 2, acidity: 3, body: 4 },
     note: "宇治の石臼挽き。青葉の余韻。",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/4cbb8172e_generated_image.png",
   },
   {
     id: "cappuccino",
@@ -76,6 +79,7 @@ export const drinks = [
     price: 520,
     profile: { sweetness: 1, acidity: 3, body: 4 },
     note: "細かい泡の天蓋。修道士の色。",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/0e46c5e04_generated_image.png",
   },
   {
     id: "espresso",
@@ -84,6 +88,7 @@ export const drinks = [
     price: 380,
     profile: { sweetness: 1, acidity: 4, body: 5 },
     note: "一瞬の濃縮。三十秒で消える温度。",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/723a654df_generated_image.png",
   },
   {
     id: "mocha",
@@ -92,6 +97,7 @@ export const drinks = [
     price: 580,
     profile: { sweetness: 4, acidity: 2, body: 4 },
     note: "珈琲とカカオ、二つの褐色の融和。",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/e8c36f3d8_generated_image.png",
   },
   {
     id: "honeylatte",
@@ -100,6 +106,7 @@ export const drinks = [
     price: 600,
     profile: { sweetness: 5, acidity: 1, body: 3 },
     note: "蜂の巣から、ゆっくりと垂れる甘み。",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/8ffb4b918_generated_image.png",
   },
   {
     id: "coldbrew",
@@ -108,6 +115,7 @@ export const drinks = [
     price: 560,
     profile: { sweetness: 2, acidity: 2, body: 4 },
     note: "八時間かけて落ちた、冷たい旋律。",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/88b2d7574_generated_image.png",
   },
   {
     id: "earlgrey",
@@ -116,6 +124,7 @@ export const drinks = [
     price: 460,
     profile: { sweetness: 1, acidity: 3, body: 2 },
     note: "ベルガモットの香りが先に立つ。",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/94ea7fe3d_generated_image.png",
   },
   {
     id: "cocoa",
@@ -124,5 +133,6 @@ export const drinks = [
     price: 540,
     profile: { sweetness: 5, acidity: 1, body: 4 },
     note: "焦がさず、ゆっくり溶かした巧克力。",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/2b540932d_generated_image.png",
   },
 ];
