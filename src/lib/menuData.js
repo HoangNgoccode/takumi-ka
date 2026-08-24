@@ -42,6 +42,33 @@ export const pastries = [
     accent: "vanilla",
     image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/9b5268b88_generated_image.png",
   },
+  {
+    id: "beniimotart",
+    nameJp: "紅芋タルト",
+    nameEn: "Beni Imo Tart",
+    price: 640,
+    desc: "沖縄の紅芋、紫の甘みをタルトに閉じ込めて。",
+    accent: "purple",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/47a738b24_generated_image.png",
+  },
+  {
+    id: "blueberrycheesetart",
+    nameJp: "ブルーベリーチーズタルト",
+    nameEn: "Blueberry Cheese Tart",
+    price: 660,
+    desc: "濃厚なチーズに、ブルーベリーの酸味を重ねて。",
+    accent: "berry",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/639222517_generated_image.png",
+  },
+  {
+    id: "redvelvet",
+    nameJp: "レッドベルベット",
+    nameEn: "Red Velvet",
+    price: 700,
+    desc: "深紅の層とクリームチーズの白、甘さの均衡。",
+    accent: "red",
+    image: "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/12c855fb9_generated_image.png",
+  },
 ];
 
 export const drinks = [
