@@ -50,13 +50,7 @@ export default function OrderMenu() {
                 <li key={p.id} className="group">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-[hsl(var(--sand))]/30">
                     <Image src={p.image} alt={p.nameJp} fittingType="fill" className="w-full h-full transition-transform duration-700 group-hover:scale-105" />
-                    <span className="absolute top-3 left-3 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[hsl(var(--parchment))]/85 backdrop-blur-sm text-[10px] text-foreground/70">
-                      <span className="relative flex w-1.5 h-1.5">
-                        <span className="absolute inline-flex h-full w-full rounded-full bg-[hsl(var(--wood))] opacity-50 animate-ping" />
-                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[hsl(var(--wood))]" />
-                      </span>
-                      {p.batch}
-                    </span>
+
                   </div>
                   <div className="mt-4 flex items-start justify-between gap-4">
                     <div><h3 className="font-heading text-xl">{p.nameJp}</h3><p className="text-xs italic text-muted-foreground">{p.nameEn}</p><p className="mt-2 text-sm text-foreground/70">{p.desc}</p></div>
