@@ -16,23 +16,23 @@ export default function Footer() {
               <span className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--sand))]">Pâtisserie & Café</span>
             </div>
           </div>
-          <p className="mt-5 max-w-sm text-[hsl(var(--parchment))]/70 leading-[1.8] text-sm">職人の手と珈琲の温度。<br />沖縄の海風と、一九八三年から。</p>
+          <p className="mt-5 max-w-sm text-[hsl(var(--parchment))]/70 leading-[1.8] text-sm">Nhiệt độ của bàn tay nghệ nhân và cà phê.<br />Gió biển Okinawa, từ năm 1983.</p>
         </div>
         <div>
-          <p className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--sand))] mb-5">案内</p>
+          <p className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--sand))] mb-5">Hướng dẫn</p>
           <ul className="space-y-3 text-sm">
-            <li><a href="#menu" className="hover:text-[hsl(var(--sand))]">メニュー</a></li>
+            <li><a href="#menu" className="hover:text-[hsl(var(--sand))]">Thực đơn</a></li>
           </ul>
         </div>
         <div>
-          <p className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--sand))] mb-5">つながる</p>
-          <p className="text-sm text-[hsl(var(--parchment))]/70">沖縄県那覇市 国際通り 三番地</p>
+          <p className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--sand))] mb-5">Kết nối</p>
+          <p className="text-sm text-[hsl(var(--parchment))]/70">Quận Naha, Okinawa<br />Kokusai-dori, số 3</p>
           <a href="https://instagram.com" target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center justify-center w-12 h-12 rounded-full border border-[hsl(var(--parchment))]/20 hover:bg-[hsl(var(--parchment))]/10" aria-label="Instagram"><Instagram className="w-5 h-5" strokeWidth={1.5} /></a>
         </div>
       </div>
       <div className="max-w-6xl mx-auto px-6 md:px-10 pb-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[hsl(var(--parchment))]/50">
         <p>© 2026 A Cup of Coffee. All rights reserved.</p>
-        <div className="flex gap-6"><a href="#" className="hover:text-[hsl(var(--sand))]">プライバシー</a><a href="#" className="hover:text-[hsl(var(--sand))]">利用規約</a></div>
+        <div className="flex gap-6"><a href="#" className="hover:text-[hsl(var(--sand))]">Quyền riêng tư</a><a href="#" className="hover:text-[hsl(var(--sand))]">Điều khoản sử dụng</a></div>
       </div>
     </footer>
   );

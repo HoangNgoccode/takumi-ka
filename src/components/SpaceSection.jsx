@@ -43,13 +43,13 @@ export default function SpaceSection() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-[11px] uppercase tracking-[0.4em] text-[hsl(var(--wood))] mb-3">
-            Morning Brew · 朝の一杯
+            Morning Brew · Tách sáng
           </p>
           <h2 className="font-heading text-3xl md:text-4xl leading-[1.2] text-balance">
-            珈琲と茶で、目覚める
+            Thức giấc cùng cà phê và trà
           </h2>
           <p className="mt-4 text-sm text-foreground/60">
-            朝の光に溶ける一杯。心と体を、ゆっくりと起こします。
+            Tách cà phê tan trong ánh sáng ban mai. Khởi tỉnh tâm hồn và cơ thể một cách thong thả.
           </p>
         </motion.div>
 
@@ -101,7 +101,7 @@ export default function SpaceSection() {
                   <button
                     onClick={() => handleAdd(c)}
                     className="inline-flex items-center justify-center w-9 h-9 rounded-full border hairline hover:bg-[hsl(var(--wood))] hover:text-[hsl(var(--parchment))] hover:border-[hsl(var(--wood))] transition-colors"
-                    aria-label={`${c.nameJp}（${sizeObj.label}）を注文に加える`}
+                    aria-label={`Thêm ${c.nameJp}（${sizeObj.label}）vào đơn`}
                   >
                     <Plus className="w-4 h-4" strokeWidth={1.5} />
                   </button>

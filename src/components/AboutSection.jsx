@@ -8,22 +8,22 @@ const pillars = [
   {
     jp: "木",
     en: "Material",
-    text: "杉と桐。経年とともに色を増す、生きている素材だけを店内に置く。",
+    text: "Tuyết tùng và hoàng đàn. Chỉ dùng những vật liệu sống, đậm màu theo thời gian.",
   },
   {
     jp: "火",
     en: "Fire",
-    text: "朝の窯の温度は二百度。職人が火加減一つで生地の命を決める。",
+    text: "Lò nướng buổi sáng ở 200 độ. Nghệ nhân điều nhiệt định đoạt sinh mệnh của bánh.",
   },
   {
     jp: "光",
     en: "Light",
-    text: "木漏れ日が床に落ちる午後。照明はすべて自然光の補助にすぎない。",
+    text: "Nắng rêu rớt trưa xuống sàn. Ánh đèn chỉ là bổ trợ cho ánh sáng tự nhiên.",
   },
   {
     jp: "静",
     en: "Stillness",
-    text: "珈琲が注がれる音だけが響く。急ぐことのない、一杯の時間。",
+    text: "Chỉ còn tiếng cà phê rót vang. Thời gian của một tách, không vội vã.",
   },
 ];
 
@@ -42,7 +42,7 @@ export default function AboutSection() {
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
             <Image
               src={interiorImage}
-              alt="木漏れ日カフェの店内"
+              alt="Không gian quán cà phê Komorebi"
               fittingType="fill"
               focalPointX={0.5}
               focalPointY={0.5}
@@ -50,7 +50,7 @@ export default function AboutSection() {
             />
           </div>
           <div className="absolute -top-6 -right-6 w-28 h-28 rounded-full border border-[hsl(var(--wood))]/30 flex items-center justify-center bg-[hsl(var(--parchment))]/70 backdrop-blur-sm" aria-hidden="true">
-            <span className="font-heading text-lg text-[hsl(var(--wood))]">京都</span>
+            <span className="font-heading text-lg text-[hsl(var(--wood))]">Kyoto</span>
           </div>
         </motion.div>
 
@@ -66,12 +66,12 @@ export default function AboutSection() {
               03 — The Atelier
             </p>
             <h2 className="font-heading text-4xl md:text-5xl leading-[1.15] text-balance">
-              温もりある木と、<br className="hidden md:block" />直線の現代が<br className="hidden md:block" />共存する場所
+              Nơi gỗ ấm áp,<br className="hidden md:block" />và đường nét hiện đại<br className="hidden md:block" />cùng chung sống
             </h2>
             <p className="mt-8 max-w-xl text-foreground/70 leading-[1.9]">
-              木漏れ日カフェは、一九八三年に京都の路地で一枚のケーキから始まりました。
-              三代にわたり受け継がれた窯と、今も変わらない手の温度。
-              伝統の形をそのままに、今の道具と今の感覚で、毎日焼き上げています。
+              Komorebi Café khởi đầu từ một chiếc bánh trong con hẻm Kyoto năm 1983.
+              Chiếc lò truyền qua ba thế hệ, cùng nhiệt độ bàn tay không đổi.
+              Giữ nguyên hình dáng truyền thống, với công cụ và cảm xúc của ngày hôm nay, chúng tôi nướng bánh mỗi ngày.
             </p>
           </motion.div>
 
