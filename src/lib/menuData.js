@@ -26,6 +26,14 @@ export const coffees = [
     desc: "珈琲の苦みと、ミルクのまろやかさ。やさしく包む朝の一杯。",
     image: "https://i.pinimg.com/736x/a1/ee/ba/a1eeba9961ddb536c6c37469fc8d552b.jpg",
   },
+  {
+    id: "almond",
+    nameJp: "アーモンドコーヒー",
+    nameEn: "Almond Coffee",
+    price: 520,
+    desc: "珈琲の深みとアーモンドの香ばしさ。まろやかで、芳醇な一杯。",
+    image: "https://i.pinimg.com/736x/78/bc/64/78bc64c9f106835f09fd15a4209fea2d.jpg",
+  },
 ];
 
 export const teas = [
