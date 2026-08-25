@@ -4,7 +4,7 @@ import { ShoppingBag } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import { useCart } from "@/lib/cartContext";
 
-const LOGO_URL = "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/657721069_generated_image.png";
+const LOGO_URL = "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/a8dad95c5_generated_image.png";
 
 export default function Navbar() {
   const { totalCount, setOpen } = useCart();
@@ -12,7 +12,7 @@ export default function Navbar() {
     <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-[hsl(var(--parchment))]/80 border-b hairline">
       <nav className="max-w-6xl mx-auto px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5">
-          <Image src={LOGO_URL} alt="A Cup of Coffee" fittingType="fit" className="w-8 h-8 md:w-9 md:h-9 object-contain" />
+          <Image src={LOGO_URL} alt="A Cup of Coffee" fittingType="fit" className="w-12 h-12 md:w-14 md:h-14 object-contain" />
           <span className="font-heading text-xl md:text-2xl tracking-wide">A Cup of Coffee</span>
         </Link>
         <a href="#menu" className="hidden md:block text-sm text-foreground/70 hover:text-[hsl(var(--wood))]">メニュー</a>
