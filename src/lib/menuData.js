@@ -34,4 +34,12 @@ export const creamRolls = [
     desc: "苺の果肉をたっぷり巻き込んだ、甘酸っぱい苺クリーム。",
     image: "https://i.pinimg.com/1200x/bc/00/8a/bc008a1ee81dc1793f51b3b07b404ec5.jpg",
   },
+  {
+    id: "melon",
+    nameJp: "メロン",
+    nameEn: "Melon Cream Roll",
+    price: 680,
+    desc: "果汁たっぷりメロンクリームを、しっとり生地で巻き込みました。",
+    image: "https://i.pinimg.com/1200x/60/da/f4/60daf44429158641bf4fbec7573039cb.jpg",
+  },
 ];
