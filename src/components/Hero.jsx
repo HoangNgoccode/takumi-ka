@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Image } from "@/components/ui/image";
 
-const heroImage = "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/3575629be_generated_52a9eac0.png";
+const heroImage = "https://i.pinimg.com/736x/06/a5/5b/06a55b5918bf4bbfdeff4206e4ca98e2.jpg";
 
 export default function Hero() {
   return (
