@@ -31,6 +31,14 @@ export const coffees = [
     desc: "豆の味をそのままに。すっきりとした苦みと、澄んだ香り。",
     image: "https://i.pinimg.com/736x/6a/c1/4e/6ac14ed3e2f0540d6f01f86ea239b11b.jpg",
   },
+  {
+    id: "milk",
+    nameJp: "カフェオレ",
+    nameEn: "Milk Coffee",
+    price: 500,
+    desc: "珈琲の苦みと、ミルクのまろやかさ。やさしく包む朝の一杯。",
+    image: "https://i.pinimg.com/736x/a1/ee/ba/a1eeba9961ddb536c6c37469fc8d552b.jpg",
+  },
 ];
 
 export const creamRolls = [
