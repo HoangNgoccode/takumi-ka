@@ -91,6 +91,14 @@ export const teas = [
     desc: "紅茶の深みとレモンの爽やかな酸味。すっきりと澄んだ一杯。",
     image: "https://i.pinimg.com/1200x/8f/46/21/8f46212916e5fb6138d6db6bfe5fbd63.jpg",
   },
+  {
+    id: "chamomile-tea",
+    nameJp: "カモミール茶",
+    nameEn: "Chamomile Tea",
+    price: 480,
+    desc: "りんごのような甘い香り。心を落ち着かせ、穏やかな時間を運ぶ一杯。",
+    image: "https://i.pinimg.com/1200x/8f/46/21/8f46212916e5fb6138d6db6bfe5fbd63.jpg",
+  },
 ];
 
 export const creamRolls = [
