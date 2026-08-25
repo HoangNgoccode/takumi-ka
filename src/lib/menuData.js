@@ -3,12 +3,12 @@
 
 export const creamRolls = [
   {
-    id: "rosotea",
-    nameJp: "紅茶ロール",
-    nameEn: "Rosé Tea Roll",
+    id: "matcha",
+    nameJp: "抹茶ロール",
+    nameEn: "Matcha Cream Roll",
     price: 620,
-    desc: "アールグレイの香りを練り込んだ生地に、ふんわりとした紅茶クリーム。",
-    image: "https://i.pinimg.com/736x/72/e2/cc/72e2cc0d42433238f76523eb6708e78c.jpg",
+    desc: "宇治抹茶の香りを練り込んだ生地に、ほろ苦く甘い抹茶クリーム。",
+    image: "https://i.pinimg.com/736x/b5/87/ce/b587ce9e246b38f3f28162f9ba255feb.jpg",
   },
   {
     id: "taro",
