@@ -107,6 +107,14 @@ export const teas = [
     desc: "パッションフルーツの甘酸っぱさと紅茶の深み。南国の風を感じる一杯。",
     image: "https://i.pinimg.com/736x/94/e7/26/94e7260bb7ae231924ec1b3e22c96a8c.jpg",
   },
+  {
+    id: "lychee-tea",
+    nameJp: "ライチ茶",
+    nameEn: "Lychee Tea",
+    price: 540,
+    desc: "ライチの上品な甘い香りと紅茶の深み。芳醇で華やかな一杯。",
+    image: "https://i.pinimg.com/736x/1f/77/4c/1f774c25f1ff5bbdf179f506a6e09f62.jpg",
+  },
 ];
 
 export const creamRolls = [
