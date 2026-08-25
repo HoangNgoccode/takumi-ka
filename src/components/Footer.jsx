@@ -1,14 +1,20 @@
 import React from "react";
 import { Instagram } from "lucide-react";
+import { Image } from "@/components/ui/image";
+
+const LOGO_URL = "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/f5e7ec6cf_generated_image.png";
 
 export default function Footer() {
   return (
     <footer className="bg-[hsl(var(--espresso))] text-[hsl(var(--parchment))]">
       <div className="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 grid md:grid-cols-3 gap-10">
         <div>
-          <div className="flex items-baseline gap-3">
-            <span className="font-heading text-3xl tracking-wide">Vélia</span>
-            <span className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--sand))]">Pâtisserie & Café</span>
+          <div className="flex items-center gap-3">
+            <Image src={LOGO_URL} alt="Vélia" fittingType="fit" className="w-10 h-10 object-contain" />
+            <div className="flex items-baseline gap-3">
+              <span className="font-heading text-3xl tracking-wide">Vélia</span>
+              <span className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--sand))]">Pâtisserie & Café</span>
+            </div>
           </div>
           <p className="mt-5 max-w-sm text-[hsl(var(--parchment))]/70 leading-[1.8] text-sm">職人の手と珈琲の温度。<br />沖縄の海風と、一九八三年から。</p>
         </div>
