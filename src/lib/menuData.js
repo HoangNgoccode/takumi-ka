@@ -83,6 +83,14 @@ export const teas = [
     desc: "桃の甘い香りと紅茶の深み。爽やかな甘みが広がる一杯。",
     image: "https://i.pinimg.com/736x/18/ec/8d/18ec8db92a6dc4f5c801541e959f3d0d.jpg",
   },
+  {
+    id: "lemon-tea",
+    nameJp: "レモン茶",
+    nameEn: "Lemon Tea",
+    price: 500,
+    desc: "紅茶の深みとレモンの爽やかな酸味。すっきりと澄んだ一杯。",
+    image: "https://i.pinimg.com/1200x/8f/46/21/8f46212916e5fb6138d6db6bfe5fbd63.jpg",
+  },
 ];
 
 export const creamRolls = [
