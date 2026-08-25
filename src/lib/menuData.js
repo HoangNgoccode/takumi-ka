@@ -3,20 +3,6 @@
 
 export const coffees = [
   {
-    id: "drip",
-    nameJp: "ドリップコーヒー",
-    nameEn: "Hand Drip Coffee",
-    price: 480,
-    desc: "その日の豆を一杯ずつ丁寧に。香り立つ一杯で目を覚ます。",
-  },
-  {
-    id: "latte",
-    nameJp: "カフェラテ",
-    nameEn: "Café Latte",
-    price: 540,
-    desc: "珈琲の深みと、ミルクの甘み。朝の静けさを包む一杯。",
-  },
-  {
     id: "espresso",
     nameJp: "エスプレッソ",
     nameEn: "Espresso",
