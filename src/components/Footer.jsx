@@ -2,7 +2,7 @@ import React from "react";
 import { Instagram } from "lucide-react";
 import { Image } from "@/components/ui/image";
 
-const LOGO_URL = "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/f5e7ec6cf_generated_image.png";
+const LOGO_URL = "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/657721069_generated_image.png";
 
 export default function Footer() {
   return (
