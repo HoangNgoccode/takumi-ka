@@ -5,7 +5,7 @@ import { useCart } from "@/lib/cartContext";
 const yen = (n) => `¥${n.toLocaleString()}`;
 
 export default function CartPanel() {
-  const { items, isOpen, setOpen, updateQty, removeItem, totalPrice, totalCount, clear } = useCart();
+  const { items, isOpen, setOpen, updateQty, removeItem, totalPrice, totalCount, clear, note, setNote } = useCart();
   const progress = Math.min(100, (totalCount / 5) * 100);
 
   return (
@@ -52,6 +52,19 @@ export default function CartPanel() {
         </div>
 
         <div className="border-t hairline px-6 md:px-8 py-6 space-y-4">
+          {items.length > 0 && (
+            <div className="space-y-2">
+              <label htmlFor="order-note" className="text-xs uppercase tracking-[0.2em] text-muted-foreground">ご要望 · Special Requests</label>
+              <textarea
+                id="order-note"
+                value={note}
+                onChange={(e) => setNote(e.target.value)}
+                placeholder="アレルギー、配膳の順番など、お気軽にお書きください。"
+                rows={2}
+                className="w-full rounded-sm border hairline bg-transparent px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-[hsl(var(--wood))] resize-none"
+              />
+            </div>
+          )}
           <div className="flex items-baseline justify-between"><span className="text-sm text-muted-foreground">小計</span><span className="font-heading text-2xl tabular-nums">{yen(totalPrice)}</span></div>
           <button disabled={items.length === 0} className="w-full min-h-[52px] rounded-full bg-[hsl(var(--wood))] text-[hsl(var(--parchment))] font-heading hover:bg-[hsl(var(--espresso))] disabled:opacity-40 disabled:cursor-not-allowed transition-colors">選択を確定する</button>
           {items.length > 0 && <button onClick={clear} className="w-full text-xs text-muted-foreground hover:text-[hsl(var(--wood))] underline underline-offset-4">すべて取り消す</button>}
