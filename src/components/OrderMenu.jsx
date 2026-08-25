@@ -25,8 +25,8 @@ export default function OrderMenu() {
           <motion.ul initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
             {creamRolls.map((p) => (
               <li key={p.id} className="group">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-[hsl(var(--sand))]/30">
-                  <Image src={p.image} alt={p.nameJp} fittingType="fill" className="w-full h-full transition-transform duration-700 group-hover:scale-105" />
+                <div className="relative aspect-square overflow-hidden rounded-sm bg-[hsl(var(--sand))]/30">
+                  <Image src={p.image} alt={p.nameJp} fittingType="fit" className="w-full h-full transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="mt-4 flex items-start justify-between gap-4">
                   <div><h3 className="font-heading text-xl">{p.nameJp}</h3><p className="text-xs italic text-muted-foreground">{p.nameEn}</p><p className="mt-2 text-sm text-foreground/70">{p.desc}</p></div>
