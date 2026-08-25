@@ -75,6 +75,14 @@ export const teas = [
     desc: "炒った玄米の香ばしさと煎茶の爽やかさ。やさしい味わい。",
     image: "https://i.pinimg.com/736x/2b/7d/5e/2b7d5e3a1c9b8f7d6e5a4c3b2a1d9e8f.jpg",
   },
+  {
+    id: "peach-tea",
+    nameJp: "桃茶",
+    nameEn: "Peach Tea",
+    price: 520,
+    desc: "桃の甘い香りと紅茶の深み。爽やかな甘みが広がる一杯。",
+    image: "https://i.pinimg.com/736x/18/ec/8d/18ec8db92a6dc4f5c801541e959f3d0d.jpg",
+  },
 ];
 
 export const creamRolls = [
