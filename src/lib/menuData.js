@@ -42,6 +42,41 @@ export const coffees = [
   },
 ];
 
+export const teas = [
+  {
+    id: "sencha",
+    nameJp: "煎茶",
+    nameEn: "Sencha",
+    price: 420,
+    desc: "朝の光に溶ける一杯。心と体を、ゆっくりと起こします。",
+    image: "https://i.pinimg.com/736x/3a/9e/2b/3a9e2b8f8c7c2d2a7c4f6e5d3b1a9c8d.jpg",
+  },
+  {
+    id: "hojicha",
+    nameJp: "ほうじ茶",
+    nameEn: "Hōjicha",
+    price: 440,
+    desc: "香ばしく焙煎された茶葉。ほっこりとした温もりに包まれる一杯。",
+    image: "https://i.pinimg.com/736x/5c/1a/3e/5c1a3e2b8f9c8d7e6f5a4b3c2d1e9f8a.jpg",
+  },
+  {
+    id: "matcha-latte",
+    nameJp: "抹茶ラテ",
+    nameEn: "Matcha Latte",
+    price: 560,
+    desc: "宇治抹茶の香りと、ミルクの甘み。ほろ苦く、まろやかな一杯。",
+    image: "https://i.pinimg.com/736x/8d/2c/4f/8d2c4f1a9b7e6c5d3f2a1b8c9d7e6f5a.jpg",
+  },
+  {
+    id: "genmaicha",
+    nameJp: "玄米茶",
+    nameEn: "Genmaicha",
+    price: 440,
+    desc: "炒った玄米の香ばしさと煎茶の爽やかさ。やさしい味わい。",
+    image: "https://i.pinimg.com/736x/2b/7d/5e/2b7d5e3a1c9b8f7d6e5a4c3b2a1d9e8f.jpg",
+  },
+];
+
 export const creamRolls = [
   {
     id: "matcha",
