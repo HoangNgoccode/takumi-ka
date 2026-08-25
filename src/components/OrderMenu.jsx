@@ -15,7 +15,7 @@ export default function OrderMenu() {
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         <div className="text-center mb-10 md:mb-14">
           <p className="text-[11px] uppercase tracking-[0.4em] text-[hsl(var(--wood))] mb-3">La Crème · 菓子棚</p>
-          <h2 className="font-heading text-3xl md:text-4xl text-balance">cuộn kem ngọt ngào</h2>
+          <h2 className="font-heading text-3xl md:text-4xl text-balance">Sweet Cream Rolls</h2>
           <p className="mt-4 text-sm text-foreground/60">職人がひと巻きずつ、丁寧に。お好みの味をお選びください。</p>
         </div>
 
