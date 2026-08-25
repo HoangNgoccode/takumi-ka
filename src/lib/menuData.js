@@ -42,4 +42,12 @@ export const creamRolls = [
     desc: "果汁たっぷりメロンクリームを、しっとり生地で巻き込みました。",
     image: "https://i.pinimg.com/1200x/60/da/f4/60daf44429158641bf4fbec7573039cb.jpg",
   },
+  {
+    id: "choco",
+    nameJp: "チョコロール",
+    nameEn: "Chocolate Cream Roll",
+    price: 640,
+    desc: "ビターなチョコレートクリームを、しっとりココア生地で巻き込みました。",
+    image: "https://i.pinimg.com/736x/ce/6c/a9/ce6ca982d3b1e8fdab503fa346fced62.jpg",
+  },
 ];
