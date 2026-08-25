@@ -34,6 +34,14 @@ export const coffees = [
     desc: "珈琲の深みとアーモンドの香ばしさ。まろやかで、芳醇な一杯。",
     image: "https://i.pinimg.com/736x/78/bc/64/78bc64c9f106835f09fd15a4209fea2d.jpg",
   },
+  {
+    id: "cream",
+    nameJp: "クリームコーヒー",
+    nameEn: "Cream Coffee",
+    price: 540,
+    desc: "珈琲の苦みと、生クリームの甘み。なめらかで、豊かな一杯。",
+    image: "https://i.pinimg.com/1200x/da/08/51/da085171cd8f5cd3bcd09ac9614b5091.jpg",
+  },
 ];
 
 export const teas = [
