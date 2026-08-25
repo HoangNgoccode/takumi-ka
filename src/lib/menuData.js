@@ -22,6 +22,7 @@ export const coffees = [
     nameEn: "Espresso",
     price: 420,
     desc: "濃く、短く、力強く。一日の始まりの合図。",
+    image: "https://i.pinimg.com/736x/dc/18/29/dc18290d1bc97ef5238a66dc537b909e.jpg",
   },
   {
     id: "black",
