@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
+import { Image } from "@/components/ui/image";
 import { useCart } from "@/lib/cartContext";
 import { coffees } from "@/lib/menuData";
 
@@ -38,16 +39,23 @@ export default function SpaceSection() {
           className="divide-y hairline"
         >
           {coffees.map((c) => (
-            <li key={c.id} className="py-5 flex items-start justify-between gap-6">
-              <div className="min-w-0">
+            <li key={c.id} className="py-5 flex items-center justify-between gap-4 md:gap-6">
+              {c.image ? (
+                <div className="relative w-16 h-16 md:w-20 md:h-20 shrink-0 overflow-hidden rounded-sm bg-[hsl(var(--sand))]/30">
+                  <Image src={c.image} alt={c.nameJp} fittingType="fill" className="w-full h-full" />
+                </div>
+              ) : (
+                <div className="w-16 h-16 md:w-20 md:h-20 shrink-0" />
+              )}
+              <div className="min-w-0 flex-1">
                 <div className="flex items-baseline gap-3">
-                  <h3 className="font-heading text-xl">{c.nameJp}</h3>
+                  <h3 className="font-heading text-lg md:text-xl">{c.nameJp}</h3>
                   <span className="text-xs italic text-muted-foreground">{c.nameEn}</span>
                 </div>
-                <p className="mt-1.5 text-sm text-foreground/70">{c.desc}</p>
+                <p className="mt-1 text-sm text-foreground/70">{c.desc}</p>
               </div>
-              <div className="flex items-center gap-4 shrink-0">
-                <p className="font-heading text-lg tabular-nums">{yen(c.price)}</p>
+              <div className="flex items-center gap-3 md:gap-4 shrink-0">
+                <p className="font-heading text-base md:text-lg tabular-nums">{yen(c.price)}</p>
                 <button
                   onClick={() => addItem(c)}
                   className="inline-flex items-center justify-center w-9 h-9 rounded-full border hairline hover:bg-[hsl(var(--wood))] hover:text-[hsl(var(--parchment))] hover:border-[hsl(var(--wood))] transition-colors"
