@@ -45,6 +45,17 @@ export default function OrderMenu() {
 
         <AnimatePresence mode="wait">
           {tab === "pastries" ? (
+            <>
+            <motion.div key="banner" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }} className="relative mb-10 md:mb-14 overflow-hidden rounded-sm">
+              <div className="relative aspect-[16/7] md:aspect-[16/5] w-full">
+                <Image src="https://i.pinimg.com/1200x/e0/03/51/e003514694dc2745dfac598da0f0790c.jpg" alt="菓子棚の印象" fittingType="fill" focalPointX={0.5} focalPointY={0.4} className="w-full h-full" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--espresso))]/70 via-[hsl(var(--espresso))]/20 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 md:p-10 text-[hsl(var(--parchment))]">
+                  <p className="text-[11px] uppercase tracking-[0.4em] text-[hsl(var(--sand))] mb-2">La Vitrine · 菓子棚</p>
+                  <h3 className="font-heading text-2xl md:text-4xl leading-tight max-w-xl text-balance">職人の手が残す、甘やかな刻印</h3>
+                </div>
+              </div>
+            </motion.div>
             <motion.ul key="pastries" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }} className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
               {pastries.map((p) => (
                 <li key={p.id} className="group">
@@ -62,6 +73,7 @@ export default function OrderMenu() {
                 </li>
               ))}
             </motion.ul>
+            </>
           ) : (
             <motion.ul key="drinks" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }} className="divide-y divide-[hsl(var(--wood))]/15 border-y border-[hsl(var(--wood))]/15 max-w-3xl mx-auto">
               {drinks.map((d, i) => {
