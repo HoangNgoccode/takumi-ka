@@ -23,6 +23,14 @@ export const coffees = [
     price: 420,
     desc: "濃く、短く、力強く。一日の始まりの合図。",
   },
+  {
+    id: "black",
+    nameJp: "ブラックコーヒー",
+    nameEn: "Black Coffee",
+    price: 460,
+    desc: "豆の味をそのままに。すっきりとした苦みと、澄んだ香り。",
+    image: "https://i.pinimg.com/736x/6a/c1/4e/6ac14ed3e2f0540d6f01f86ea239b11b.jpg",
+  },
 ];
 
 export const creamRolls = [
