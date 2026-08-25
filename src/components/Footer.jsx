@@ -7,8 +7,8 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 grid md:grid-cols-3 gap-10">
         <div>
           <div className="flex items-baseline gap-3">
-            <span className="font-heading text-3xl">木漏れ日</span>
-            <span className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--sand))]">Komorebi Café</span>
+            <span className="font-heading text-3xl tracking-wide">Vélia</span>
+            <span className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--sand))]">Pâtisserie & Café</span>
           </div>
           <p className="mt-5 max-w-sm text-[hsl(var(--parchment))]/70 leading-[1.8] text-sm">職人の手と珈琲の温度。<br />沖縄の海風と、一九八三年から。</p>
         </div>
@@ -25,7 +25,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="max-w-6xl mx-auto px-6 md:px-10 pb-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[hsl(var(--parchment))]/50">
-        <p>© 2026 木漏れ日カフェ. All rights reserved.</p>
+        <p>© 2026 Vélia. All rights reserved.</p>
         <div className="flex gap-6"><a href="#" className="hover:text-[hsl(var(--sand))]">プライバシー</a><a href="#" className="hover:text-[hsl(var(--sand))]">利用規約</a></div>
       </div>
     </footer>
