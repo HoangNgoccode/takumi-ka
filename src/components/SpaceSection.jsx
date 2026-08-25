@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import { useCart } from "@/lib/cartContext";
-import { coffees } from "@/lib/menuData";
+import { coffees, teas } from "@/lib/menuData";
 
 const yen = (n) => `¥${n.toLocaleString()}`;
 
@@ -24,7 +24,7 @@ export default function SpaceSection() {
             Morning Brew · 朝の一杯
           </p>
           <h2 className="font-heading text-3xl md:text-4xl leading-[1.2] text-balance">
-            新しい一日を、珈琲で目覚める
+            珈琲と茶で、目覚める
           </h2>
           <p className="mt-4 text-sm text-foreground/60">
             朝の光に溶ける一杯。心と体を、ゆっくりと起こします。
@@ -38,7 +38,7 @@ export default function SpaceSection() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="divide-y hairline"
         >
-          {coffees.map((c) => (
+          {[...coffees, ...teas].map((c) => (
             <li key={c.id} className="py-5 flex items-center justify-between gap-4 md:gap-6">
               {c.image ? (
                 <div className="relative w-16 h-16 md:w-20 md:h-20 shrink-0 overflow-hidden rounded-sm bg-[hsl(var(--sand))]/30">
