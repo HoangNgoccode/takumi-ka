@@ -19,7 +19,7 @@ export default function SpaceSection() {
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm">
             <Image
               src={SPACE_URL}
-              alt="Vélia の店内"
+              alt="A Cup of Coffee の店内"
               fittingType="fill"
               focalPointX={0.5}
               focalPointY={0.45}

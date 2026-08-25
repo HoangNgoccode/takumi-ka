@@ -12,8 +12,8 @@ export default function Navbar() {
     <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-[hsl(var(--parchment))]/80 border-b hairline">
       <nav className="max-w-6xl mx-auto px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5">
-          <Image src={LOGO_URL} alt="Vélia" fittingType="fit" className="w-8 h-8 md:w-9 md:h-9 object-contain" />
-          <span className="font-heading text-xl md:text-2xl tracking-wide">Vélia</span>
+          <Image src={LOGO_URL} alt="A Cup of Coffee" fittingType="fit" className="w-8 h-8 md:w-9 md:h-9 object-contain" />
+          <span className="font-heading text-xl md:text-2xl tracking-wide">A Cup of Coffee</span>
         </Link>
         <a href="#menu" className="hidden md:block text-sm text-foreground/70 hover:text-[hsl(var(--wood))]">メニュー</a>
         <button onClick={() => setOpen(true)} className="relative inline-flex items-center justify-center w-12 h-12 rounded-full hover:bg-[hsl(var(--sand))]/40 focus-visible:ring-2 focus-visible:ring-[hsl(var(--wood))]" aria-label="注文カートを開く">

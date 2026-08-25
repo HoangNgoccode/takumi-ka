@@ -10,9 +10,9 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 grid md:grid-cols-3 gap-10">
         <div>
           <div className="flex items-center gap-3">
-            <Image src={LOGO_URL} alt="Vélia" fittingType="fit" className="w-10 h-10 object-contain" />
+            <Image src={LOGO_URL} alt="A Cup of Coffee" fittingType="fit" className="w-10 h-10 object-contain" />
             <div className="flex items-baseline gap-3">
-              <span className="font-heading text-3xl tracking-wide">Vélia</span>
+              <span className="font-heading text-3xl tracking-wide">A Cup of Coffee</span>
               <span className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--sand))]">Pâtisserie & Café</span>
             </div>
           </div>
@@ -31,7 +31,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="max-w-6xl mx-auto px-6 md:px-10 pb-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[hsl(var(--parchment))]/50">
-        <p>© 2026 Vélia. All rights reserved.</p>
+        <p>© 2026 A Cup of Coffee. All rights reserved.</p>
         <div className="flex gap-6"><a href="#" className="hover:text-[hsl(var(--sand))]">プライバシー</a><a href="#" className="hover:text-[hsl(var(--sand))]">利用規約</a></div>
       </div>
     </footer>
