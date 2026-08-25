@@ -99,6 +99,14 @@ export const teas = [
     desc: "りんごのような甘い香り。心を落ち着かせ、穏やかな時間を運ぶ一杯。",
     image: "https://i.pinimg.com/1200x/8f/46/21/8f46212916e5fb6138d6db6bfe5fbd63.jpg",
   },
+  {
+    id: "passionfruit-tea",
+    nameJp: "パッションフルーツ茶",
+    nameEn: "Passion Fruit Tea",
+    price: 540,
+    desc: "パッションフルーツの甘酸っぱさと紅茶の深み。南国の風を感じる一杯。",
+    image: "https://i.pinimg.com/736x/94/e7/26/94e7260bb7ae231924ec1b3e22c96a8c.jpg",
+  },
 ];
 
 export const creamRolls = [
