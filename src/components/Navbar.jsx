@@ -15,8 +15,8 @@ export default function Navbar() {
           <Image src={LOGO_URL} alt="A Cup of Coffee" fittingType="fit" className="w-12 h-12 md:w-14 md:h-14 object-contain" />
           <span className="font-heading text-xl md:text-2xl tracking-wide">A Cup of Coffee</span>
         </Link>
-        <a href="#menu" className="hidden md:block text-sm text-foreground/70 hover:text-[hsl(var(--wood))]">Thực đơn</a>
-        <button onClick={() => setOpen(true)} className="relative inline-flex items-center justify-center w-12 h-12 rounded-full hover:bg-[hsl(var(--sand))]/40 focus-visible:ring-2 focus-visible:ring-[hsl(var(--wood))]" aria-label="Mở giỏ hàng">
+        <a href="#menu" className="hidden md:block text-sm text-foreground/70 hover:text-[hsl(var(--wood))]">メニュー</a>
+        <button onClick={() => setOpen(true)} className="relative inline-flex items-center justify-center w-12 h-12 rounded-full hover:bg-[hsl(var(--sand))]/40 focus-visible:ring-2 focus-visible:ring-[hsl(var(--wood))]" aria-label="カートを開く">
           <ShoppingBag className="w-5 h-5" strokeWidth={1.5} />
           {totalCount > 0 && (
             <span className="absolute -top-0.5 -right-0.5 min-w-[20px] h-5 px-1 rounded-full bg-[hsl(var(--wood))] text-[hsl(var(--parchment))] text-[11px] flex items-center justify-center">{totalCount}</span>

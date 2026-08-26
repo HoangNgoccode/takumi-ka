@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { MapPin, Clock, Phone } from "lucide-react";
 
 const hours = [
-  { day: "Th 2 — Th 5", time: "09:00 — 19:00" },
-  { day: "Th 6 — Th 7", time: "09:00 — 21:00" },
-  { day: "CN & Lễ", time: "09:00 — 18:00" },
+  { day: "月 — 木", time: "09:00 — 19:00" },
+  { day: "金 — 土", time: "09:00 — 21:00" },
+  { day: "日・祝日", time: "09:00 — 18:00" },
 ];
 
 export default function VisitSection() {
@@ -18,10 +18,10 @@ export default function VisitSection() {
               04 — Visit
             </p>
             <h2 className="font-heading text-4xl md:text-5xl leading-[1.15] text-balance">
-              Hãy ghé thăm<br />dưới ánh nắng rêu rớt lá
+              木漏れ日の下へ<br />お越しください
             </h2>
             <p className="mt-6 text-foreground/70 leading-[1.8] max-w-md">
-              Không cần đặt bàn. Hãy ngồi bên chiếc lò và chờ tiếng bánh chín.
+              予約は不要。窯のそばに座り、焼き上がる音をお待ちください。
             </p>
           </div>
 
@@ -36,14 +36,14 @@ export default function VisitSection() {
               <div className="flex items-start gap-4">
                 <MapPin className="w-5 h-5 text-[hsl(var(--wood))] mt-1 shrink-0" strokeWidth={1.5} />
                 <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Địa chỉ</p>
-                  <p className="mt-1 leading-[1.7]">Quận Naha, Okinawa<br />Kokusai-dori, số 3</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">住所</p>
+                  <p className="mt-1 leading-[1.7]">沖縄県那覇市<br />国際通り3番</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <Phone className="w-5 h-5 text-[hsl(var(--wood))] mt-1 shrink-0" strokeWidth={1.5} />
                 <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Điện thoại</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">電話</p>
                   <p className="mt-1 leading-[1.7]">098-000-0000</p>
                 </div>
               </div>
@@ -58,7 +58,7 @@ export default function VisitSection() {
             >
               <Clock className="w-5 h-5 text-[hsl(var(--wood))] mt-1 shrink-0" strokeWidth={1.5} />
               <div className="w-full">
-                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Giờ mở cửa</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">営業時間</p>
                 <ul className="mt-2 space-y-2">
                   {hours.map((h) => (
                     <li key={h.day} className="flex items-baseline justify-between gap-4 border-b hairline pb-2">

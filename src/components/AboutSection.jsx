@@ -8,22 +8,22 @@ const pillars = [
   {
     jp: "木",
     en: "Material",
-    text: "Tuyết tùng và hoàng đàn. Chỉ dùng những vật liệu sống, đậm màu theo thời gian.",
+    text: "杉と檜。生きている素材だけを、時とともに色濃く。",
   },
   {
     jp: "火",
     en: "Fire",
-    text: "Lò nướng buổi sáng ở 200 độ. Nghệ nhân điều nhiệt định đoạt sinh mệnh của bánh.",
+    text: "朝の窯は200度。職人が温度を握り、菓子の命を決める。",
   },
   {
     jp: "光",
     en: "Light",
-    text: "Nắng rêu rớt trưa xuống sàn. Ánh đèn chỉ là bổ trợ cho ánh sáng tự nhiên.",
+    text: "正午の木漏れ日が床に落ちる。灯りは自然光を補うのみ。",
   },
   {
     jp: "静",
     en: "Stillness",
-    text: "Chỉ còn tiếng cà phê rót vang. Thời gian của một tách, không vội vã.",
+    text: "コーヒーが注がれる音だけ。一杯の時間、急がない。",
   },
 ];
 
@@ -42,7 +42,7 @@ export default function AboutSection() {
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
             <Image
               src={interiorImage}
-              alt="Không gian quán cà phê Komorebi"
+              alt="Komorebi カフェの空間"
               fittingType="fill"
               focalPointX={0.5}
               focalPointY={0.5}
@@ -66,12 +66,12 @@ export default function AboutSection() {
               03 — The Atelier
             </p>
             <h2 className="font-heading text-4xl md:text-5xl leading-[1.15] text-balance">
-              Nơi gỗ ấm áp,<br className="hidden md:block" />và đường nét hiện đại<br className="hidden md:block" />cùng chung sống
+              木の温もりと、<br className="hidden md:block" />現代の線が<br className="hidden md:block" />共に生きる場所
             </h2>
             <p className="mt-8 max-w-xl text-foreground/70 leading-[1.9]">
-              Komorebi Café khởi đầu từ một chiếc bánh trong con hẻm Kyoto năm 1983.
-              Chiếc lò truyền qua ba thế hệ, cùng nhiệt độ bàn tay không đổi.
-              Giữ nguyên hình dáng truyền thống, với công cụ và cảm xúc của ngày hôm nay, chúng tôi nướng bánh mỗi ngày.
+              Komorebi Caféは、1983年、京都の路地で一つの菓子から始まりました。
+              三代に渡る窯、変わらぬ手の温度。
+              伝統の形をそのままに、今日の道具と感性で、毎日焼いています。
             </p>
           </motion.div>
 
