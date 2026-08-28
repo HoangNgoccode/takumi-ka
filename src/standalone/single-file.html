@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Cup of Coffee — Pâtisserie & Café</title>
+  <link rel="icon" type="image/png" href="https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/a8dad95c5_generated_image.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['"Shippori Mincho"', 'ui-serif', 'serif'],
+            body: ['"Instrument Sans"', '"Noto Sans JP"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- React + Babel + libs -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/framer-motion@11/dist/framer-motion.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --background: 40 20% 98%;
+      --foreground: 220 14% 16%;
+      --muted-foreground: 220 8% 42%;
+      --wood: 220 14% 22%;
+      --sand: 40 14% 90%;
+      --parchment: 40 20% 98%;
+      --espresso: 220 16% 12%;
+      --border: 220 10% 88%;
+    }
+    * { border-color: hsl(var(--border)); }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      font-family: "Instrument Sans", "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+    }
+    ::selection { background-color: hsl(var(--wood)); color: hsl(var(--parchment)); }
+    .font-heading { font-family: "Shippori Mincho", ui-serif, serif; }
+    .hairline { border-color: hsl(var(--wood) / 0.25); }
+    .koushi-bg {
+      background-image: repeating-linear-gradient(90deg, transparent 0, transparent calc(100% / 16 - 1px), hsl(var(--border) / 0.35) calc(100% / 16 - 1px), hsl(var(--border) / 0.35) calc(100% / 16));
+    }
+    .text-balance { text-wrap: balance; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" data-presets="env,react">
+const { useState, createContext, useContext, useMemo, useCallback } = React;
+const { motion } = window.Motion || {};
+
+// ============ LOGO ============
+const LOGO_URL = "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/a8dad95c5_generated_image.png";
+const heroImage = "https://i.pinimg.com/736x/06/a5/5b/06a55b5918bf4bbfdeff4206e4ca98e2.jpg";
+const interiorImage = "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/0497db195_generated_f55bb5d1.png";
+
+// ============ MENU DATA ============
+const coffees = [
+  { id: 'espresso', nameJp: 'エスプレッソ', nameEn: 'Espresso', price: 420, desc: '濃く、短く、力強い。一日の始まりの合図。', image: 'https://i.pinimg.com/736x/dc/18/29/dc18290d1bc97ef5238a66dc537b909e.jpg' },
+  { id: 'black', nameJp: 'ブラックコーヒー', nameEn: 'Black Coffee', price: 460, desc: '豆の本来の風味をそのまま。苦味は清らか、香りは澄んで。', image: 'https://i.pinimg.com/736x/6a/c1/4e/6ac14ed3e2f0540d6f01f86ea239b11b.jpg' },
+  { id: 'milk', nameJp: 'ミルクコーヒー', nameEn: 'Milk Coffee', price: 500, desc: 'コーヒーの苦味とミルクの濃厚さが調和。温かい朝の一杯。', image: 'https://i.pinimg.com/736x/a1/ee/ba/a1eeba9961ddb536c6c37469fc8d552b.jpg' },
+  { id: 'almond', nameJp: 'アーモンドコーヒー', nameEn: 'Almond Coffee', price: 520, desc: 'コーヒーの深みとアーモンドの香り。まろやかで豊かな一杯。', image: 'https://i.pinimg.com/736x/78/bc/64/78bc64c9f106835f09fd15a4209fea2d.jpg' },
+  { id: 'cream', nameJp: 'クリームコーヒー', nameEn: 'Cream Coffee', price: 540, desc: 'コーヒーの苦味と生クリームの甘み。なめらかで濃厚な一杯。', image: 'https://i.pinimg.com/1200x/da/08/51/da085171cd8f5cd3bcd09ac9614b5091.jpg' },
+];
+const teas = [
+  { id: 'peach-tea', nameJp: 'ピーチティー', nameEn: 'Peach Tea', price: 520, desc: '桃の甘い香りと紅茶の深みが調和。甘く爽やかな一杯。', image: 'https://i.pinimg.com/736x/18/ec/8d/18ec8db92a6dc4f5c801541e959f3d0d.jpg' },
+  { id: 'lemon-tea', nameJp: 'レモンティー', nameEn: 'Lemon Tea', price: 500, desc: '紅茶の深みとレモンの酸味。澄んで爽やかな一杯。', image: 'https://i.pinimg.com/1200x/8f/46/21/8f46212916e5fb6138d6db6bfe5fbd63.jpg' },
+  { id: 'passionfruit-tea', nameJp: 'パッションフルーツティー', nameEn: 'Passion Fruit Tea', price: 540, desc: 'パッションフルーツの酸味と紅茶の深み。南国の息吹を感じる一杯。', image: 'https://i.pinimg.com/736x/94/e7/26/94e7260bb7ae231924ec1b3e22c96a8c.jpg' },
+  { id: 'lychee-tea', nameJp: 'ライチティー', nameEn: 'Lychee Tea', price: 540, desc: 'ライチの上品で甘い香りと紅茶の深み。豊かで華やかな一杯。', image: 'https://i.pinimg.com/736x/1f/77/4c/1f774c25f1ff5bbdf179f506a6e09f62.jpg' },
+];
+const creamRolls = [
+  { id: 'matcha', nameJp: '抹茶クリームロール', nameEn: 'Matcha Cream Roll', price: 620, desc: '宇治抹茶の香り、ほのかな甘みとほろ苦さ。', image: 'https://i.pinimg.com/736x/b5/87/ce/b587ce9e246b38f3f28162f9ba255feb.jpg' },
+  { id: 'taro', nameJp: 'タロクリームロール', nameEn: 'Taro Cream Roll', price: 640, desc: '紫いもクリームのやさしい甘み、しっとり生地。', image: 'https://i.pinimg.com/736x/32/6a/57/326a5719fb70b59c4b8383e6f01e5cc9.jpg' },
+  { id: 'vanilla', nameJp: 'バニラクリームロール', nameEn: 'Vanilla Cream Roll', price: 580, desc: 'マダガスカル産バニラビーンズ、香り高いなめらかさ。', image: 'https://i.pinimg.com/1200x/d7/fc/52/d7fc5237c9320bb28d04580177bcb647.jpg' },
+  { id: 'strawberry', nameJp: 'いちごクリームロール', nameEn: 'Strawberry Cream Roll', price: 660, desc: 'いちごクリームと新鮮ないちご、甘酸っぱさ。', image: 'https://i.pinimg.com/1200x/bc/00/8a/bc008a1ee81dc1793f51b3b07b404ec5.jpg' },
+  { id: 'melon', nameJp: 'メロンクリームロール', nameEn: 'Melon Cream Roll', price: 680, desc: 'みずみずしいメロンクリーム、しっとり生地。', image: 'https://i.pinimg.com/1200x/60/da/f4/60daf44429158641bf4fbec7573039cb.jpg' },
+  { id: 'choco', nameJp: 'チョコクリームロール', nameEn: 'Chocolate Cream Roll', price: 640, desc: 'ほろ苦いチョコクリーム、しっとりカカオ生地。', image: 'https://i.pinimg.com/736x/ce/6c/a9/ce6ca982d3b1e8fdab503fa346fced62.jpg' },
+];
+
+// ============ CART CONTEXT ============
+const CartContext = createContext(null);
+function CartProvider({ children }) {
+  const [items, setItems] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [note, setNote] = useState("");
+
+  const addItem = useCallback((p) => {
+    setItems((prev) => {
+      const ex = prev.find((i) => i.id === p.id);
+      return ex ? prev.map((i) => (i.id === p.id ? { ...i, qty: i.qty + 1 } : i)) : [...prev, { ...p, qty: 1 }];
+    });
+    setIsOpen(true);
+  }, []);
+  const updateQty = useCallback((id, qty) => setItems((prev) => prev.map((i) => (i.id === id ? { ...i, qty } : i)).filter((i) => i.qty > 0)), []);
+  const removeItem = useCallback((id) => setItems((prev) => prev.filter((i) => i.id !== id)), []);
+  const clear = useCallback(() => { setItems([]); setNote(""); }, []);
+  const totalCount = useMemo(() =>!items.length ? 0 : items.reduce((s, i) => s + i.qty, 0), [items]);
+  const totalPrice = useMemo(() => items.reduce((s, i) => s + i.price * i.qty, 0), [items]);
+
+  return (
+    <CartContext.Provider value={{ items, addItem, updateQty, removeItem, clear, isOpen, setOpen: setIsOpen, totalCount, totalPrice, note, setNote }}>
+      {children}
+    </CartContext.Provider>
+  );
+}
+const useCart = () => {
+  const ctx = useContext(CartContext);
+  if (!ctx) throw new Error("useCart must be used within CartProvider");
+  return ctx;
+};
+
+// ============ HELPERS ============
+const yen = (n) => `¥${n.toLocaleString()}`;
+const SIZES = [
+  { id: 's', label: 'S', delta: -60 },
+  { id: 'm', label: 'M', delta: 0 },
+  { id: 'l', label: 'L', delta: 100 },
+];
+
+// ============ ICONS (lucide) ============
+function Icon({ name, size = 20, strokeWidth = 1.5, className = "" }) {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    if (ref.current) {
+      ref.current.innerHTML = "";
+      const svg = lucide.createElement(lucide.icons[name] || lucide.icons.Circle);
+      svg.setAttribute("width", size);
+      svg.setAttribute("height", size);
+      svg.setAttribute("stroke-width", strokeWidth);
+      ref.current.appendChild(svg);
+    }
+  }, [name, size, strokeWidth]);
+  return React.createElement("span", { ref, className: `inline-flex ${className}` });
+}
+
+// ============ NAVBAR ============
+function Navbar() {
+  const { totalCount, setOpen } = useCart();
+  return (
+    <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-[hsl(var(--parchment))]/80 border-b hairline">
+      <nav className="max-w-6xl mx-auto px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
+        <a href="#" className="flex items-center gap-2.5">
+          <img src={LOGO_URL} alt="A Cup of Coffee" className="w-12 h-12 md:w-14 md:h-14 object-contain" />
+          <span className="font-heading text-xl md:text-2xl tracking-wide">A Cup of Coffee</span>
+        </a>
+        <a href="#menu" className="hidden md:block text-sm text-foreground/70 hover:text-[hsl(var(--wood))]">メニュー</a>
+        <button onClick={() => setOpen(true)} className="relative inline-flex items-center justify-center w-12 h-12 rounded-full hover:bg-[hsl(var(--sand))]/40" aria-label="カートを開く">
+          <Icon name="ShoppingBag" size={20} />
+          {totalCount > 0 && (
+            <span className="absolute -top-0.5 -right-0.5 min-w-[20px] h-5 px-1 rounded-full bg-[hsl(var(--wood))] text-[hsl(var(--parchment))] text-[11px] flex items-center justify-center">{totalCount}</span>
+          )}
+        </button>
+      </nav>
+    </header>
+  );
+}
+
+// ============ HERO ============
+function Hero() {
+  return (
+    <section className="relative overflow-hidden bg-[hsl(var(--parchment))] pt-16 md:pt-20">
+      <div className="absolute inset-0 koushi-bg opacity-40" aria-hidden="true" />
+      <div className="relative max-w-6xl mx-auto px-6 md:px-10 py-14 md:py-20 grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+        {motion ? (
+          <motion.div className="md:col-span-7" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
+            <p className="text-[11px] uppercase tracking-[0.4em] text-[hsl(var(--wood))] mb-5">A Cup of Coffee · Pâtisserie & Café</p>
+            <h1 className="font-heading text-4xl md:text-6xl leading-[1.1] text-balance">手作りの味わい、現代の調和</h1>
+            <p className="mt-6 max-w-md text-foreground/70 leading-[1.8]">木漏れ日の差し込む店で、一つずつ手焼きの菓子と、一杯ずつ淹れるコーヒー。どうぞお選びください。</p>
+          </motion.div>
+        ) : (
+          <div className="md:col-span-7">
+            <p className="text-[11px] uppercase tracking-[0.4em] text-[hsl(var(--wood))] mb-5">A Cup of Coffee · Pâtisserie & Café</p>
+            <h1 className="font-heading text-4xl md:text-6xl leading-[1.1] text-balance">手作りの味わい、現代の調和</h1>
+            <p className="mt-6 max-w-md text-foreground/70 leading-[1.8]">木漏れ日の差し込む店で、一つずつ手焼きの菓子と、一杯ずつ淹れるコーヒー。どうぞお選びください。</p>
+          </div>
+        )}
+        {motion ? (
+          <motion.div className="md:col-span-5" initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}>
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm">
+              <img src={heroImage} alt="ミルフィーユ" className="w-full h-full object-cover" />
+            </div>
+          </motion.div>
+        ) : (
+          <div className="md:col-span-5">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm">
+              <img src={heroImage} alt="ミルフィーユ" className="w-full h-full object-cover" />
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+// ============ TABS ============
+function Tabs({ tabs, children }) {
+  const [active, setActive] = useState(tabs[0].id);
+  return (
+    <div className="w-full">
+      <div className="mx-auto mb-10 flex justify-center">
+        <div className="inline-flex gap-1 rounded-full bg-[hsl(var(--sand))]/50 p-1">
+          {tabs.map((t) => (
+            <button key={t.id} onClick={() => setActive(t.id)} className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${active === t.id ? 'bg-[hsl(var(--wood))] text-[hsl(var(--parchment))]' : 'text-foreground/70 hover:bg-[hsl(var(--sand))]/40'}`}>{t.label}</button>
+          ))}
+        </div>
+      </div>
+      {children(active)}
+    </div>
+  );
+}
+
+// ============ MENU ============
+function DrinkRow({ drink }) {
+  const { addItem } = useCart();
+  const [sizeId, setSizeId] = useState('m');
+  const sizeObj = SIZES.find((s) => s.id === sizeId);
+  const unitPrice = drink.price + sizeObj.delta;
+  const handleAdd = () => {
+    addItem({ ...drink, id: `${drink.id}-${sizeId}`, nameJp: `${drink.nameJp}（${sizeObj.label}）`, nameEn: `${drink.nameEn} · ${sizeObj.label}`, price: unitPrice });
+  };
+  return (
+    <li className="py-5 flex items-center justify-between gap-4 md:gap-6">
+      <div className="relative w-16 h-16 md:w-20 md:h-20 shrink-0 overflow-hidden rounded-sm bg-[hsl(var(--sand))]/30">
+        <img src={drink.image} alt={drink.nameJp} className="w-full h-full object-cover" />
+      </div>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-baseline gap-3">
+          <h3 className="font-heading text-lg md:text-xl">{drink.nameJp}</h3>
+          <span className="text-xs italic text-[hsl(var(--muted-foreground))]">{drink.nameEn}</span>
+        </div>
+        <p className="mt-1 text-sm text-foreground/70">{drink.desc}</p>
+        <div className="mt-2 inline-flex items-center gap-1 border hairline rounded-full p-0.5">
+          {SIZES.map((s) => (
+            <button key={s.id} onClick={() => setSizeId(s.id)} className={`min-w-[28px] h-7 px-2 rounded-full text-xs font-medium transition-colors ${sizeId === s.id ? 'bg-[hsl(var(--wood))] text-[hsl(var(--parchment))]' : 'text-foreground/70 hover:bg-[hsl(var(--sand))]/40'}`} aria-pressed={sizeId === s.id}>{s.label}</button>
+          ))}
+        </div>
+      </div>
+      <div className="flex flex-col items-end gap-2 shrink-0">
+        <p className="font-heading text-base md:text-lg tabular-nums">{yen(unitPrice)}</p>
+        <button onClick={handleAdd} className="inline-flex items-center justify-center w-9 h-9 rounded-full border hairline hover:bg-[hsl(var(--wood))] hover:text-[hsl(var(--parchment))] hover:border-[hsl(var(--wood))] transition-colors" aria-label={`${drink.nameJp}を注文に追加`}>
+          <Icon name="Plus" size={16} />
+        </button>
+      </div>
+    </li>
+  );
+}
+
+function PastryCard({ pastry }) {
+  const { addItem } = useCart();
+  return (
+    <li className="group">
+      <div className="relative aspect-square overflow-hidden rounded-sm bg-[hsl(var(--sand))]/30">
+        <img src={pastry.image} alt={pastry.nameJp} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+      </div>
+      <div className="mt-4 flex items-start justify-between gap-4">
+        <div>
+          <h3 className="font-heading text-xl">{pastry.nameJp}</h3>
+          <p className="text-xs italic text-[hsl(var(--muted-foreground))]">{pastry.nameEn}</p>
+          <p className="mt-2 text-sm text-foreground/70">{pastry.desc}</p>
+        </div>
+        <p className="font-heading text-lg tabular-nums shrink-0">{yen(pastry.price)}</p>
+      </div>
+      <button onClick={() => addItem(pastry)} className="mt-4 w-full inline-flex items-center justify-center gap-2 min-h-[44px] rounded-full border hairline text-sm hover:bg-[hsl(var(--wood))] hover:text-[hsl(var(--parchment))] hover:border-[hsl(var(--wood))] transition-colors">
+        <Icon name="Plus" size={16} /> 注文に追加
+      </button>
+    </li>
+  );
+}
+
+function MenuSection() {
+  return (
+    <section id="menu" className="bg-[hsl(var(--parchment))] py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-6 md:px-10">
+        <div className="text-center mb-10 md:mb-14">
+          <p className="text-[11px] uppercase tracking-[0.4em] text-[hsl(var(--wood))] mb-3">La Crème · メニュー</p>
+          <h2 className="font-heading text-3xl md:text-4xl text-balance">お選びください</h2>
+          <p className="mt-4 text-sm text-foreground/60">一杯の飲み物と、一つの菓子。職人の手仕事をどうぞ。</p>
+        </div>
+        <Tabs tabs={[{ id: 'drinks', label: 'ドリンク' }, { id: 'pastries', label: 'クリームロール' }]}>
+          {(active) => active === 'drinks' ? (
+            <ul className="divide-y hairline max-w-3xl mx-auto">
+              {[...coffees, ...teas].map((c) => <DrinkRow key={c.id} drink={c} />)}
+            </ul>
+          ) : (
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
+              {creamRolls.map((p) => <PastryCard key={p.id} pastry={p} />)}
+            </ul>
+          )}
+        </Tabs>
+      </div>
+    </section>
+  );
+}
+
+// ============ ABOUT ============
+const pillars = [
+  { jp: '木', en: 'Material', text: '杉と檜。生きている素材だけを、時とともに色濃く。' },
+  { jp: '火', en: 'Fire', text: '朝の窯は200度。職人が温度を握り、菓子の命を決める。' },
+  { jp: '光', en: 'Light', text: '正午の木漏れ日が床に落ちる。灯りは自然光を補うのみ。' },
+  { jp: '静', en: 'Stillness', text: 'コーヒーが注がれる音だけ。一杯の時間、急がない。' },
+];
+
+function AboutSection() {
+  return (
+    <section id="about" className="relative bg-[hsl(var(--parchment))] py-24 md:py-36 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 md:gap-16 items-center">
+        <div className="md:col-span-5 relative">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
+            <img src={interiorImage} alt="カフェの空間" className="w-full h-full object-cover" />
+          </div>
+          <div className="absolute -top-6 -right-6 w-28 h-28 rounded-full border border-[hsl(var(--wood))]/30 flex items-center justify-center bg-[hsl(var(--parchment))]/70 backdrop-blur-sm" aria-hidden="true">
+            <span className="font-heading text-lg text-[hsl(var(--wood))]">Kyoto</span>
+          </div>
+        </div>
+        <div className="md:col-span-7">
+          <p className="text-[11px] uppercase tracking-[0.4em] text-[hsl(var(--wood))] mb-6">03 — The Atelier</p>
+          <h2 className="font-heading text-4xl md:text-5xl leading-[1.15] text-balance">木の温もりと、<br className="hidden md:block" />現代の線が<br className="hidden md:block" />共に生きる場所</h2>
+          <p className="mt-8 max-w-xl text-foreground/70 leading-[1.9]">Komorebi Caféは、1983年、京都の路地で一つの菓子から始まりました。三代に渡る窯、変わらぬ手の温度。伝統の形をそのままに、今日の道具と感性で、毎日焼いています。</p>
+          <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-10">
+            {pillars.map((p) => (
+              <div key={p.jp}>
+                <div className="flex items-baseline gap-3">
+                  <span className="font-heading text-3xl text-[hsl(var(--wood))]" aria-hidden="true">{p.jp}</span>
+                  <span className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--muted-foreground))]">{p.en}</span>
+                </div>
+                <p className="mt-3 text-sm text-foreground/70 leading-[1.7]">{p.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============ VISIT ============
+const hours = [
+  { day: '月 — 木', time: '09:00 — 19:00' },
+  { day: '金 — 土', time: '09:00 — 21:00' },
+  { day: '日・祝日', time: '09:00 — 18:00' },
+];
+
+function VisitSection() {
+  return (
+    <section id="visit" className="relative bg-[hsl(30_24%_92%)] py-24 md:py-36">
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="grid md:grid-cols-12 gap-12">
+          <div className="md:col-span-5">
+            <p className="text-[11px] uppercase tracking-[0.4em] text-[hsl(var(--wood))] mb-6">04 — Visit</p>
+            <h2 className="font-heading text-4xl md:text-5xl leading-[1.15] text-balance">木漏れ日の下へ<br />お越しください</h2>
+            <p className="mt-6 text-foreground/70 leading-[1.8] max-w-md">予約は不要。窯のそばに座り、焼き上がる音をお待ちください。</p>
+          </div>
+          <div className="md:col-span-7 grid sm:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <Icon name="MapPin" size={20} className="mt-1 shrink-0 text-[hsl(var(--wood))]" />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--muted-foreground))]">住所</p>
+                  <p className="mt-1 leading-[1.7]">沖縄県那覇市<br />国際通り3番</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Icon name="Phone" size={20} className="mt-1 shrink-0 text-[hsl(var(--wood))]" />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--muted-foreground))]">電話</p>
+                  <p className="mt-1 leading-[1.7]">098-000-0000</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <Icon name="Clock" size={20} className="mt-1 shrink-0 text-[hsl(var(--wood))]" />
+              <div className="w-full">
+                <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--muted-foreground))]">営業時間</p>
+                <ul className="mt-2 space-y-2">
+                  {hours.map((h) => (
+                    <li key={h.day} className="flex items-baseline justify-between gap-4 border-b hairline pb-2">
+                      <span className="text-sm">{h.day}</span>
+                      <span className="font-heading text-sm tabular-nums">{h.time}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============ FOOTER ============
+function Footer() {
+  return (
+    <footer className="bg-[hsl(var(--espresso))] text-[hsl(var(--parchment))]">
+      <div className="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 grid md:grid-cols-3 gap-10">
+        <div>
+          <div className="flex items-center gap-3">
+            <img src={LOGO_URL} alt="A Cup of Coffee" className="w-14 h-14 object-contain" />
+            <span className="font-heading text-3xl tracking-wide">A Cup of Coffee</span>
+          </div>
+          <p className="mt-5 max-w-sm text-[hsl(var(--parchment))]/70 leading-[1.8] text-sm">職人の手の温度とコーヒー。<br />沖縄の海風、1983年から。</p>
+        </div>
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--sand))] mb-5">ご案内</p>
+          <ul className="space-y-3 text-sm">
+            <li><a href="#menu" className="hover:text-[hsl(var(--sand))]">メニュー</a></li>
+          </ul>
+        </div>
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--sand))] mb-5">つながる</p>
+          <p className="text-sm text-[hsl(var(--parchment))]/70">沖縄県那覇市<br />国際通り3番</p>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center justify-center w-12 h-12 rounded-full border border-[hsl(var(--parchment))]/20 hover:bg-[hsl(var(--parchment))]/10" aria-label="Instagram">
+            <Icon name="Instagram" size={20} />
+          </a>
+        </div>
+      </div>
+      <div className="max-w-6xl mx-auto px-6 md:px-10 pb-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[hsl(var(--parchment))]/50">
+        <p>© 2026 A Cup of Coffee. All rights reserved.</p>
+        <div className="flex gap-6">
+          <a href="#" className="hover:text-[hsl(var(--sand))]">プライバシー</a>
+          <a href="#" className="hover:text-[hsl(var(--sand))]">利用規約</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+// ============ CART PANEL ============
+function CartPanel() {
+  const { items, isOpen, setOpen, updateQty, removeItem, totalPrice, totalCount, clear, note, setNote } = useCart();
+  const progress = Math.min(100, (totalCount / 5) * 100);
+  return (
+    <>
+      <div className={`fixed inset-0 z-50 bg-[hsl(var(--espresso))]/40 backdrop-blur-sm transition-opacity duration-500 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} onClick={() => setOpen(false)} />
+      <aside className={`fixed top-0 right-0 z-50 h-full w-full max-w-md bg-[hsl(var(--parchment))] shadow-2xl transition-transform duration-500 flex flex-col ${isOpen ? 'translate-x-0' : 'translate-x-full'}`} role="dialog" aria-label="注文内容">
+        <div className="flex items-center justify-between px-6 md:px-8 h-16 md:h-20 border-b hairline">
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--muted-foreground))]">Your Order</p>
+            <h2 className="font-heading text-lg">お選びいただいたもの</h2>
+          </div>
+          <button onClick={() => setOpen(false)} className="inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-[hsl(var(--sand))]/40" aria-label="閉じる">
+            <Icon name="X" size={20} />
+          </button>
+        </div>
+        <div className="px-6 md:px-8 pt-4">
+          <div className="h-px w-full bg-[hsl(var(--sand))]">
+            <div className="h-px bg-[hsl(var(--wood))] transition-all duration-700" style={{ width: `${progress}%` }} />
+          </div>
+          <p className="mt-2 text-xs text-[hsl(var(--muted-foreground))]">{totalCount >= 5 ? '職人にお任せできます' : 'もう少しお選びください'}</p>
+        </div>
+        <div className="flex-1 overflow-y-auto px-6 md:px-8 py-6">
+          {items.length === 0 ? (
+            <div className="h-full flex flex-col items-center justify-center text-center gap-3">
+              <span className="font-heading text-2xl text-[hsl(var(--sand))]">トレイ</span>
+              <p className="font-heading text-lg">トレイはまだ空です</p>
+              <p className="text-sm text-[hsl(var(--muted-foreground))] max-w-[220px]">菓子や飲み物をお選びいただくと、ここに表示されます。</p>
+            </div>
+          ) : (
+            <ul className="space-y-6">
+              {items.map((item) => (
+                <li key={item.id} className="flex gap-4">
+                  <div className="flex-1 min-w-0">
+                    <p className="font-heading text-base leading-tight">{item.nameJp}</p>
+                    <p className="text-xs italic text-[hsl(var(--muted-foreground))]">{item.nameEn}</p>
+                    <p className="mt-1 text-sm text-foreground/70">{yen(item.price)}</p>
+                    <div className="mt-3 inline-flex items-center gap-3 border hairline rounded-full px-1 py-1">
+                      <button onClick={() => updateQty(item.id, item.qty - 1)} className="w-8 h-8 rounded-full hover:bg-[hsl(var(--sand))]/40 flex items-center justify-center" aria-label="減らす">
+                        <Icon name="Minus" size={14} />
+                      </button>
+                      <span className="w-5 text-center text-sm tabular-nums">{item.qty}</span>
+                      <button onClick={() => updateQty(item.id, item.qty + 1)} className="w-8 h-8 rounded-full hover:bg-[hsl(var(--sand))]/40 flex items-center justify-center" aria-label="増やす">
+                        <Icon name="Plus" size={14} />
+                      </button>
+                    </div>
+                  </div>
+                  <p className="font-heading text-base tabular-nums">{yen(item.price * item.qty)}</p>
+                  <button onClick={() => removeItem(item.id)} className="self-start text-xs text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--wood))] underline underline-offset-4">削除</button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <div className="border-t hairline px-6 md:px-8 py-6 space-y-4">
+          {items.length > 0 && (
+            <div className="space-y-2">
+              <label htmlFor="order-note" className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--muted-foreground))]">ご要望 · Special Requests</label>
+              <textarea id="order-note" value={note} onChange={(e) => setNote(e.target.value)} placeholder="アレルギーや提供順など、自由にご記入ください。" rows={2} className="w-full rounded-sm border hairline bg-transparent px-3 py-2 text-sm text-foreground placeholder:text-[hsl(var(--muted-foreground))]/60 focus:outline-none focus:border-[hsl(var(--wood))] resize-none" />
+            </div>
+          )}
+          <div className="flex items-baseline justify-between">
+            <span className="text-sm text-[hsl(var(--muted-foreground))]">小計</span>
+            <span className="font-heading text-2xl tabular-nums">{yen(totalPrice)}</span>
+          </div>
+          <button disabled={items.length === 0} className="w-full min-h-[52px] rounded-full bg-[hsl(var(--wood))] text-[hsl(var(--parchment))] font-heading hover:bg-[hsl(var(--espresso))] disabled:opacity-40 disabled:cursor-not-allowed transition-colors">選択を確認</button>
+          {items.length > 0 && <button onClick={clear} className="w-full text-xs text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--wood))] underline underline-offset-4">すべて削除</button>}
+        </div>
+      </aside>
+    </>
+  );
+}
+
+// ============ APP ============
+function App() {
+  return (
+    <CartProvider>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-1">
+          <Hero />
+          <MenuSection />
+          <AboutSection />
+          <VisitSection />
+        </main>
+        <Footer />
+        <CartPanel />
+      </div>
+    </CartProvider>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+
+</body>
+</html>
