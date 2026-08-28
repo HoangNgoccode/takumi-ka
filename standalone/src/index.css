@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 98%;
+    --foreground: 220 14% 16%;
+    --card: 40 24% 99%;
+    --primary: 220 14% 16%;
+    --secondary: 40 14% 90%;
+    --muted: 40 12% 93%;
+    --muted-foreground: 220 8% 42%;
+    --accent: 14 52% 52%;
+    --border: 220 10% 88%;
+    --wood: 220 14% 22%;
+    --sand: 40 14% 90%;
+    --parchment: 40 20% 98%;
+    --espresso: 220 16% 12%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: "Instrument Sans", "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+
+  ::selection {
+    background-color: hsl(var(--wood));
+    color: hsl(var(--parchment));
+  }
+}
+
+@layer components {
+  .font-heading { font-family: "Shippori Mincho", ui-serif, serif; }
+
+  .hairline { border-color: hsl(var(--wood) / 0.25); }
+
+  .koushi-bg {
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent calc(100% / 16 - 1px),
+      hsl(var(--border) / 0.35) calc(100% / 16 - 1px),
+      hsl(var(--border) / 0.35) calc(100% / 16)
+    );
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  .animate-slow-rise {
+    animation: slow-rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes slow-rise {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
