@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
-import { Image } from "@/components/ui/image";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { coffees, teas, creamRolls } from "@/lib/menuData";
 import { useCart } from "@/lib/cartContext";
@@ -33,7 +32,7 @@ function DrinkRow({ drink }) {
   return (
     <li className="py-5 flex items-center justify-between gap-4 md:gap-6">
       <div className="relative w-16 h-16 md:w-20 md:h-20 shrink-0 overflow-hidden rounded-sm bg-[hsl(var(--sand))]/30">
-        <Image src={drink.image} alt={drink.nameJp} fittingType="fill" className="w-full h-full" />
+        <img src={drink.image} alt={drink.nameJp} className="w-full h-full object-cover" />
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline gap-3">
@@ -77,7 +76,7 @@ function PastryCard({ pastry }) {
   return (
     <li className="group">
       <div className="relative aspect-square overflow-hidden rounded-sm bg-[hsl(var(--sand))]/30">
-        <Image src={pastry.image} alt={pastry.nameJp} fittingType="fit" className="w-full h-full transition-transform duration-700 group-hover:scale-105" />
+        <img src={pastry.image} alt={pastry.nameJp} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
       </div>
       <div className="mt-4 flex items-start justify-between gap-4">
         <div>
