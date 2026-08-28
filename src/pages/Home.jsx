@@ -1,14 +1,14 @@
 import React from "react";
 import Hero from "@/components/Hero";
-import SpaceSection from "@/components/SpaceSection";
-import OrderMenu from "@/components/OrderMenu";
+import MenuSection from "@/components/MenuSection";
+import AboutSection from "@/components/AboutSection";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <SpaceSection />
-      <OrderMenu />
+      <MenuSection />
+      <AboutSection />
     </>
   );
 }
