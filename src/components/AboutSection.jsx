@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Image } from "@/components/ui/image";
+
 
 const interiorImage = "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/0497db195_generated_f55bb5d1.png";
 
@@ -40,14 +40,7 @@ export default function AboutSection() {
           className="md:col-span-5 relative"
         >
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
-            <Image
-              src={interiorImage}
-              alt="Komorebi カフェの空間"
-              fittingType="fill"
-              focalPointX={0.5}
-              focalPointY={0.5}
-              className="w-full h-full"
-            />
+            <img src={interiorImage} alt="Komorebi カフェの空間" className="w-full h-full object-cover" />
           </div>
           <div className="absolute -top-6 -right-6 w-28 h-28 rounded-full border border-[hsl(var(--wood))]/30 flex items-center justify-center bg-[hsl(var(--parchment))]/70 backdrop-blur-sm" aria-hidden="true">
             <span className="font-heading text-lg text-[hsl(var(--wood))]">Kyoto</span>

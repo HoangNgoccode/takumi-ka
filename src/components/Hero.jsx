@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Image } from "@/components/ui/image";
+
 
 const heroImage = "https://i.pinimg.com/736x/06/a5/5b/06a55b5918bf4bbfdeff4206e4ca98e2.jpg";
 
@@ -16,7 +16,7 @@ export default function Hero() {
         </motion.div>
         <motion.div className="md:col-span-5" initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}>
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm">
-            <Image src={heroImage} alt="ミルフィーユ" fittingType="fill" focalPointX={0.5} focalPointY={0.4} className="w-full h-full" />
+            <img src={heroImage} alt="ミルフィーユ" className="w-full h-full object-cover" />
           </div>
         </motion.div>
       </div>

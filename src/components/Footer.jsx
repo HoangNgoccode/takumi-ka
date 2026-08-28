@@ -1,6 +1,6 @@
 import React from "react";
 import { Instagram } from "lucide-react";
-import { Image } from "@/components/ui/image";
+
 
 const LOGO_URL = "https://media.base44.com/images/public/6a7c0fbc3673521b41e904a4/a8dad95c5_generated_image.png";
 
@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 grid md:grid-cols-3 gap-10">
         <div>
           <div className="flex items-center gap-3">
-            <Image src={LOGO_URL} alt="A Cup of Coffee" fittingType="fit" className="w-14 h-14 object-contain" />
+            <img src={LOGO_URL} alt="A Cup of Coffee" className="w-14 h-14 object-contain" />
             <div className="flex items-baseline gap-3">
               <span className="font-heading text-3xl tracking-wide">A Cup of Coffee</span>
               <span className="text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--sand))]">Pâtisserie & Café</span>
